@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.2.1",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.31.0",
+    "uuid": "^9.0.0"
+  },
+  "name": "nutrivalue-server",
+  "description": "Express.js server for NutriValue web app client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "seed": "node seeds/index.js"
+  },
+  "author": "Darius Garcia",
+  "license": "ISC"
+}
