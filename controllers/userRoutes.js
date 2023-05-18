@@ -7,7 +7,7 @@ userRouter.get('/allUsers', async (req, res) => {
   try {
     const users = await User.findAll({
       attributes: { exclude: ['password'] }, // Specify the column you want to exclude
-      include: 'meals',
+      include: 'sessions',
     })
     res.status(200).json(users)
   } catch (err) {
