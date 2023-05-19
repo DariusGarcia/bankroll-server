@@ -15,19 +15,19 @@ Session.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    additionalBuyIn: {
-      type: DataTypes.STRING,
+    profit: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     initialBuyIn: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    additionalBuyIn: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     location: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    profit: {
       type: DataTypes.STRING,
       allowNull: false,
     },

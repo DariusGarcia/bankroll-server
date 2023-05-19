@@ -24,6 +24,35 @@ sessionRouter.get('/', async (req, res) => {
   }
 })
 
+// READ a specific gambling session by ID
+sessionRouter.get('/:sessionId', async (req, res) => {
+  const token = req.headers.authorization // Assuming the token is provided in the Authorization header
+  const { sessionId } = req.params // Get the session ID from the URL parameters
+
+  if (!token) {
+    return res.status(401).json({ message: 'Missing token' })
+  }
+
+  const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY)
+  const userId = decodedToken.id
+  const user = await User.findByPk(userId) // Retrieve the user instance by their ID
+  if (!user) {
+    return res.status(404).json({ message: 'User not found' })
+  }
+
+  try {
+    const session = await Session.findOne({
+      where: { id: sessionId, userId: userId },
+    })
+    if (!session) {
+      return res.status(404).json({ message: 'Session not found' })
+    }
+    res.status(200).json(session)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
 // CREATE new gambling session
 sessionRouter.post('/', async (req, res) => {
   const {
