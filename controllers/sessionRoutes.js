@@ -145,7 +145,7 @@ sessionRouter.put('/:id', async (req, res) => {
   }
 })
 
-// DELETE multiple meals
+// DELETE multiple sessions
 sessionRouter.delete('/', async (req, res) => {
   const sessionIds = req.body.sessionIds
 
