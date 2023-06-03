@@ -37,7 +37,19 @@ Session.init(
     },
     timeSpent: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+    },
+    sportsBetName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    sportsBetOdds: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    typeOfBet: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {
