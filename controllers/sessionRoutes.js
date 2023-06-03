@@ -64,6 +64,7 @@ sessionRouter.post('/', async (req, res) => {
     date,
     timeSpent,
     sportsBetName,
+    typeOfBet,
     sportsBetOdds,
   } = req.body
   const token = req.headers.authorization // Assuming the token is provided in the Authorization header
@@ -89,6 +90,7 @@ sessionRouter.post('/', async (req, res) => {
       timeSpent: timeSpent,
       sportsBetName: sportsBetName,
       sportsBetOdds: sportsBetOdds,
+      typeOfBet: typeOfBet,
     })
 
     res.status(200).json(newSession)
@@ -114,6 +116,7 @@ sessionRouter.put('/:id', async (req, res) => {
     timeSpent,
     sportsBetName,
     sportsBetOdds,
+    typeOfBet,
   } = req.body
 
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY)
@@ -135,6 +138,7 @@ sessionRouter.put('/:id', async (req, res) => {
         timeSpent: timeSpent,
         sportsBetName: sportsBetName,
         sportsBetOdds: sportsBetOdds,
+        typeOfBet: typeOfBet,
       },
       {
         where: {
