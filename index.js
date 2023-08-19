@@ -35,8 +35,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(routes)
 
 // connect to db
-sequelize.sync({ alter: true }).then(() => {
-  app.listen(PORT, () =>
+sequelize.sync({ force: false }).then(() => {
+  app.listen(process.env.PORT || 4003, () =>
     console.log(
       `🚀 ~ Now listening on port ${PORT}\n-------------------------------\n`
     )
